@@ -22,9 +22,9 @@ export default function Intro() {
       </div>
 
       {/* Content section */}
-      <div className="flex flex-col justify-center items-center h-full relative z-10">
+      <div className="flex flex-col justify-center items-center h-full relative z-10 ">
         <Image
-          src="/Connor cropped.jpg"
+          src="/Connor.jpg"
           alt="Connor Thompson"
           width={250}
           height={250}

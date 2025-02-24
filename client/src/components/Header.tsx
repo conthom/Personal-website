@@ -140,7 +140,7 @@ export default function Header() {
               href='/'
               className='mr-12 md:ml-11 ml-0 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
             >
-              Coursework
+              Resume
             </Link>
             <Link
               href='/'
