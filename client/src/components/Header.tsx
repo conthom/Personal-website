@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
-  const [projectsOpen, setProjectsOpen] = React.useState(false); // State for Projects dropdown
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false); // State for Projects dropdown
+  const [scrolled, setScrolled] = useState(false); // State to track scroll
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {  // Change this threshold as needed
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className='fixed top-0 w-full clearNav z-50'>
+    <header className={`fixed top-0 w-full z-50 ${scrolled ? 'bg-black shadow-lg glow' : 'bg-transparent'}`}>
       <div className='max-w-5xl mx-auto flex flex-wrap p-5 flex-col md:flex-row'>
         <div className='flex flex-row items-center justify-between p-3 md:p-1'>
-          <Link
-            href='/'
-            className='flex text-3xl text-white font-medium mb-4 md:mb-0'
-          >
+          <Link href='/' className='flex text-3xl text-white font-medium mb-4 md:mb-0'>
             Connor Thompson
           </Link>
           <button
@@ -39,23 +52,15 @@ export default function Header() {
             </svg>
           </button>
         </div>
-        <div
-          className={ 
-            'md:flex flex-grow items-center' +
-            (navbarOpen ? ' flex' : ' hidden')
-          }
-        >
+        <div className={`md:flex flex-grow items-center ${navbarOpen ? 'flex' : 'hidden'}`}>
           <div className='md:ml-auto md:mr-auto font-4 pt-1 md:pl-14 pl-1 flex flex-wrap items-center md:text-base text-1xl md:justify-center justify-items-start'>
-            
-            {/* Features Link */}
             <Link
-              href='/'
+              href='/about'
               className='mr-11 pr-2 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
             >
               About Me
             </Link>
-            
-            {/* Dropdown for Projects */}
+
             <div className='relative'>
               <button
                 type='button'
@@ -92,20 +97,21 @@ export default function Header() {
                 <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'>
                   <div className='relative grid gap-6 bg-black px-2 py-6 sm:gap-8'>
                     <Link
-                      href='/project1'
+                      href='/gantt'
                       className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
                     >
                       <div className='ml-4'>
                         <p className='text-base font-medium text-white'>
-                          Project One
+                          G4NTT - An AI Business Action Plan Generator
                         </p>
                         <p className='mt-1 text-sm text-gray-500'>
-                          Description of project one.
+                        Collaborated with grad and undergrad to develop a full-stack web app for generating an
+                        informed action plan in a Gantt chart
                         </p>
                       </div>
                     </Link>
                     <Link
-                      href='/project2'
+                      href='/matrixpracticer'
                       className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
                     >
                       <div className='ml-4'>
@@ -118,7 +124,7 @@ export default function Header() {
                       </div>
                     </Link>
                     <Link
-                      href='/project3'
+                      href='/groceryapp'
                       className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
                     >
                       <div className='ml-4'>
@@ -135,15 +141,14 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Other Links */}
             <Link
-              href='/'
+              href='/resume'
               className='mr-12 md:ml-11 ml-0 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
             >
               Resume
             </Link>
             <Link
-              href='/'
+              href='/contact'
               className='mr-5 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
             >
               Contact
