@@ -1,160 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [projectsOpen, setProjectsOpen] = useState(false); // State for Projects dropdown
-  const [scrolled, setScrolled] = useState(false); // State to track scroll
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {  // Change this threshold as needed
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
   return (
-    <header className={`fixed top-0 w-full z-50 ${scrolled ? 'bg-black shadow-lg glow' : 'bg-transparent'}`}>
-      <div className='max-w-5xl mx-auto flex flex-wrap p-5 flex-col md:flex-row'>
-        <div className='flex flex-row items-center justify-between p-3 md:p-1'>
-          <Link href='/' className='flex text-3xl text-white font-medium mb-4 md:mb-0'>
+    <header className="fixed w-full z-50 bg-black bg-opacity-50 h-16">
+      <div className="max-w-5xl mx-auto flex flex-wrap p-5 flex-col md:flex-row">
+        {/* Logo & Mobile Menu Button */}
+        <div className="flex items-center justify-between w-full md:w-auto p-3 md:p-1">
+          <Link href="/" className="flex items-center text-3xl text-white font-medium">
+            <img src="connor logo.png" alt="Connor Logo" className="h-8 w-8 mr-2" />
             Connor Thompson
           </Link>
           <button
-            className='text-white pb-4 cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none content-end ml-auto'
-            type='button'
-            aria-label='button'
-            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="text-white md:hidden px-3 py-1 focus:outline-none"
+            aria-label="Toggle menu"
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='24'
-              height='24'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='white'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              className='feather feather-menu'
-            >
-              <line x1='3' y1='12' x2='21' y2='12'></line>
-              <line x1='3' y1='6' x2='21' y2='6'></line>
-              <line x1='3' y1='18' x2='21' y2='18'></line>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
         </div>
-        <div className={`md:flex flex-grow items-center ${navbarOpen ? 'flex' : 'hidden'}`}>
-          <div className='md:ml-auto md:mr-auto font-4 pt-1 md:pl-14 pl-1 flex flex-wrap items-center md:text-base text-1xl md:justify-center justify-items-start'>
-            <Link
-              href='/about'
-              className='mr-11 pr-2 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
-            >
-              About Me
-            </Link>
 
-            <div className='relative'>
+        {/* Navigation Links */}
+        <nav className="md:flex flex-grow items-center">
+          <div className="md:ml-auto md:mr-auto flex flex-wrap items-center text-1xl md:text-base">
+            {/* Projects Dropdown */}
+            <div className="relative">
               <button
-                type='button'
-                className='group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none'
-                onClick={() => setProjectsOpen(!projectsOpen)} // Toggle Projects dropdown
+                className="text-gray-300 hover:text-white font-semibold flex items-center"
+                onMouseEnter={() => setProjectsOpen(true)}
+                onMouseLeave={() => setProjectsOpen(false)}
               >
-                <span className='cursor-pointer text-gray-300 hover:text-white font-semibold'>Projects</span>
+                Projects
                 <svg
-                  className={
-                    projectsOpen
-                      ? 'transform rotate-180 ml-3 h-5 w-5 transition ease-out duration-200'
-                      : 'ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500'
-                  }
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 20 20'
-                  fill='currentColor'
-                  aria-hidden='true'
+                  className={`ml-2 h-5 w-5 transition-transform ${projectsOpen ? 'rotate-180' : ''}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fillRule='evenodd'
-                    d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
-                    clipRule='evenodd'
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
                   />
                 </svg>
               </button>
-              <div
-                onMouseLeave={() => setProjectsOpen(false)}
-                className={
-                  projectsOpen
-                    ? 'opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 -ml-4 mt-3 g327 border transform px-2 w-screen max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'
-                    : 'hidden opacity-0 translate-y-1 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'
-                }
-              >
-                <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'>
-                  <div className='relative grid gap-6 bg-black px-2 py-6 sm:gap-8'>
-                    <Link
-                      href='/gantt'
-                      className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
-                    >
-                      <div className='ml-4'>
-                        <p className='text-base font-medium text-white'>
-                          G4NTT - An AI Business Action Plan Generator
-                        </p>
-                        <p className='mt-1 text-sm text-gray-500'>
-                        Collaborated with grad and undergrad to develop a full-stack web app for generating an
-                        informed action plan in a Gantt chart
-                        </p>
-                      </div>
+
+              {/* Dropdown Content */}
+              {projectsOpen && (
+                <div
+                  className="absolute z-10 mt-3 w-64 bg-black rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+                  onMouseEnter={() => setProjectsOpen(true)}
+                  onMouseLeave={() => setProjectsOpen(false)}
+                >
+                  <div className="p-4 space-y-2">
+                    <Link href="/gantt" className="block text-white hover:bg-gray-800 p-2 rounded-md">
+                      <p className="font-medium">G4NTT - AI Business Action Plan Generator</p>
+                      <p className="text-sm text-gray-500">Full-stack web app for Gantt chart generation.</p>
                     </Link>
-                    <Link
-                      href='/matrixpracticer'
-                      className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
-                    >
-                      <div className='ml-4'>
-                        <p className='text-base font-medium text-white'>
-                          Project Two
-                        </p>
-                        <p className='mt-1 text-sm text-gray-500'>
-                          Description of project two.
-                        </p>
-                      </div>
+                    <Link href="/matrixpracticer" className="block text-white hover:bg-gray-800 p-2 rounded-md">
+                      <p className="font-medium">Project Two</p>
+                      <p className="text-sm text-gray-500">Description of project two.</p>
                     </Link>
-                    <Link
-                      href='/groceryapp'
-                      className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-800 tr04'
-                    >
-                      <div className='ml-4'>
-                        <p className='text-base font-medium text-white'>
-                          Project Three
-                        </p>
-                        <p className='mt-1 text-sm text-gray-500'>
-                          Description of project three.
-                        </p>
-                      </div>
+                    <Link href="/groceryapp" className="block text-white hover:bg-gray-800 p-2 rounded-md">
+                      <p className="font-medium">Project Three</p>
+                      <p className="text-sm text-gray-500">Description of project three.</p>
                     </Link>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            <Link
-              href='/resume'
-              className='mr-12 md:ml-11 ml-0 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
-            >
+            <Link href="/resume" className="mr-12 ml-11 text-gray-300 hover:text-white font-semibold">
               Resume
             </Link>
-            <Link
-              href='/contact'
-              className='mr-5 cursor-pointer text-gray-300 hover:text-white font-semibold tr04'
-            >
-              Contact
+            <Link href="/about" className="mr-5 text-gray-300 hover:text-white font-semibold">
+              About Me
             </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

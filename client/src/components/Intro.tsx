@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TechyBackground from '@/components/TechyBackground'; // Assuming correct import
+import TechStack from '@/components/Techstack'
 // @ts-ignore
 import FadeIn from "text-fade-in";
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Importing icons
-import { SiJavascript, SiReact, SiNextdotjs, SiPython, SiFlask, SiMongodb } from 'react-icons/si'; // Tech logos
-
+// Icons
 const LeetCodeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    width="36"  // Ensure the icon has a width
-    height="36" // Ensure the icon has a height
+    width="45"  // Ensure the icon has a width
+    height="45" // Ensure the icon has a height
     fill="none"
     stroke="currentColor" // Set stroke color to current text color
 >
@@ -21,13 +21,10 @@ const LeetCodeIcon = () => (
   </svg>
 );
 const EmailIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" id="mail">
+  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="mail"     fill="white">
     <path d="M18 0C8.065 0 0 8.065 0 18s8.065 18 18 18 18-8.065 18-18S27.935 0 18 0zm0 1c9.41 0 17.031 7.59 17.031 17S27.41 35.031 18 35.031C8.59 35.031.969 27.41.969 18 .969 8.59 8.59 1 18 1zM8.844 12.594a.5.5 0 0 0-.438.531V24.5a.5.5 0 0 0 .5.5h18.188a.5.5 0 0 0 .5-.5V13.187a.5.5 0 0 0-.5-.593H18l-9 .031a.5.5 0 0 0-.094-.031.5.5 0 0 0-.062 0zm9.156 1h7.375L18 18.219l-7.344-4.594L18 13.594zM9.406 14l8.344 5.219a.5.5 0 0 0 .531 0L26.594 14v10H9.406V14z"></path>
   </svg>
 );
-
-
-
 export default function Intro() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -56,64 +53,69 @@ export default function Intro() {
       </div>
 
       {/* Content section */}
-      <div className="flex flex-col justify-center items-center h-full relative z-10 text-white">
+      <div className="flex flex-col justify-center items-center h-full relative z-10 text-white mt-20">
         <Image
           src="/Connor.jpg"
           alt="Connor Thompson"
           width={250}
           height={250}
-          className="rounded-full mt-10"
+          className="rounded-full"
         />
         <div className="text-6xl mt-4 text-center font-mono">
           <Typewriter
-            options={{
-              strings: ["hi, I'm Connor."],
-              autoStart: true,
-              loop: true,
-              cursor: "|",
-            }}
-          />
+        options={{
+          strings: ["Hi, I'm Connor."],
+          autoStart: true,
+          loop: true,
+          cursor: "|",
+        }}
+        />
         </div>
-        <div className="text-2xl mt-4 text-center font-mono">
+        <div className="text-2xl text-center font-mono">
           <FadeIn linear lines text-l>
-            <p className="font-mono text-2xl mb-4 p-5">FULL STACK DEV</p>
-            <p className="text-2xl mb-4 p-5">•</p>
-            <p className="font-mono text-2xl mb-4 p-5">IU COMPUTER SCIENCE '26</p>
-            <p className="text-2xl mb-4 p-5">•</p>
-            <p className="font-mono text-2xl mb-4 p-5">GAMER AT HEART</p>
+        <p className="font-mono text-2xl mb-4 p-5">Full Stack Developer</p>
+        <p className="text-2xl mb-4 p-5">•</p>
+        <div className="flex items-center mb-4 p-5 fill-white">
+        <Image
+          alt = "IU Logo"
+          src="/iulogo.png"
+          width={28}
+          height={28}
+        />
+          <p className="font-mono text-2xl px-2">Computer Science '26</p>
+        </div>
+        <p className="text-2xl mb-4 p-5">•</p>
+        <p className="font-mono text-2xl mb-4 p-5">Building my AI / ML Skillset</p>
           </FadeIn>
         </div>
-
         {/* Social Links */}
-        <div className="flex space-x-6 mt-6 text-4xl">
-        <a href="https://github.com/conthom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-          <FaGithub />
-        </a>
-        <a href="https://linkedin.com/in/connorthompson26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-          <FaLinkedin />
-        </a>
-        <a href="https://leetcode.com/u/connorhonor/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-          <LeetCodeIcon />
-        </a>
-        <a href="/contact" className="hover:text-gray-400 invert"> {/* Link to your contact page */}
-          <EmailIcon />
-        </a>
-      </div>
-
-
+        <div className="flex space-x-6 mt-6 text-5xl"> {/* Increased text size to make icons larger */}
+          <a href="https://github.com/conthom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/in/connorthompson26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <FaLinkedin />
+          </a>
+          <a href="https://leetcode.com/u/connorhonor/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <LeetCodeIcon />
+          </a>
+          <a href="/about" rel="noopener noreferrer" className="hover:text-gray-400"> {/* Link to your contact page */}
+            <EmailIcon/>
+          </a>
+        </div>
+        <FadeIn linear lines>
+        <p className="mt-4 max-w-xl mx-auto text-xl text-center bg-black bg-opacity-30 p-4 rounded">
+          I specialize in full-stack software development using JavaScript, React, and Next.js, with backend experience in Python, Flask, Firebase, and PostgreSQL.
+        </p>
+        </FadeIn>
         {/* Tech Stack */}
-        <div className="mt-8 text-center">
-          <h2 className="text-3xl mb-4 font-mono">Tech Stack</h2>
+        <div className="text-center">
           <div className="flex justify-center space-x-6 text-5xl">
-            <SiJavascript title="JavaScript" />
-            <SiReact title="React.js" />
-            <SiNextdotjs title="Next.js" />
-            <SiPython title="Python" />
-            <SiFlask title="Flask" />
+            <TechStack/>
           </div>
         </div>
-          <p className="mt-4 max-w-xl mx-auto text-lg">I specialize in full-stack web development using JavaScript, React, and Next.js, with backend experience in Python and Flask.</p>
-        </div>
+
+      </div>
       </div>
   );
 }

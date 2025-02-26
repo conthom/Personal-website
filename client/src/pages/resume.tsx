@@ -9,7 +9,12 @@ export default function Resume() {
             </Head>
         <div className="flex justify-center items-center h-full">
         
-
+        <embed
+            src="/Connor Thompson Resume 2025.pdf"
+            type="application/pdf"
+            width="80%"
+            height="90%"
+        />
 
 
         </div>
