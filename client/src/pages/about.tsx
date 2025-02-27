@@ -7,10 +7,36 @@ const About = () => {
     const [reason, setReason] = useState('');
     const [name, setName] = useState('');
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Handle form submission, possibly send email through an API or service
-        console.log('Sending email with:', { name, email, message });
+
+        const formData = {
+            name,
+            email,
+            reason,
+            message,
+        };
+
+        // Send the form data to the Flask backend
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                alert('Your message has been sent!');
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('An error occurred. Please try again later.');
+        }
     };
 
     return (
