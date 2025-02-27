@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export default function Header() {
   const [projectsOpen, setProjectsOpen] = useState(false);
 
@@ -10,7 +10,7 @@ export default function Header() {
         {/* Logo & Mobile Menu Button */}
         <div className="flex items-center justify-between w-full md:w-auto p-3 md:p-1">
           <Link href="/" className="flex items-center text-3xl text-white font-medium">
-            <img src="connor logo.png" alt="Connor Logo" className="h-8 w-8 mr-10" />
+            <Image src="connor logo.png" alt="Connor Logo" className="h-8 w-8 mr-10" />
             Connor Thompson
           </Link>
           <button
