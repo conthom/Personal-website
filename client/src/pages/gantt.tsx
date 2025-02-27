@@ -8,7 +8,7 @@ export default function Gantt() {
                 <link rel="icon" href="/connor logo.png" />
             </Head>
         <div className="flex justify-center items-center h-full">
-        
+        https://g4ntt.vercel.app/
 
         </div>
         </div>
