@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TechyBackground from '@/components/TechyBackground'; // Assuming correct import
 import TechStack from '@/components/Techstack'
-// @ts-ignore
+// @ts-expect-error
 import FadeIn from "text-fade-in";
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Importing icons
