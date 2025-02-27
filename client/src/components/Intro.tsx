@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import TechyBackground from '@/components/TechyBackground'; // Assuming correct import
 import TechStack from '@/components/Techstack'
@@ -6,7 +6,7 @@ import Link from 'next/link';
 // @ts-expect-error okay
 import FadeIn from "text-fade-in";
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Importing icons
+import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Importing icons
 // Icons
 const LeetCodeIcon = () => (
   <svg
@@ -67,7 +67,7 @@ export default function Intro() {
           width={28}
           height={28}
         />
-          <p className="font-mono text-2xl px-2">Computer Science '26</p>
+          <p className="font-mono text-2xl px-2">Computer Science &apos;'26</p>
         </div>
         <p className="text-2xl mb-4 p-5">•</p>
         <p className="font-mono text-2xl mb-4 p-5">Building my AI / ML Skillset</p>
