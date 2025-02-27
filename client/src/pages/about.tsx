@@ -22,8 +22,8 @@ const About = () => {
             <div className="mb-8 max-w-3xl mx-auto bg-gray-800 rounded-lg p-6 mt-60 leading-10">
                 <h1 className="text-center text-4xl mb-4" style={{ fontFamily: 'Times New Roman, Times, serif' }}>About Me</h1>
                 <p className="text-lg">
-                    Hi, I'm <b>Connor Thompson</b>.
-                    <br />A Computer Science student at <a href="https://www.indiana.edu/" className="text-blue-400 underline">Indiana University Bloomington</a>, specializing in software engineering to expand my real-world problem-solving skills.
+                    Hi, I'm <b>Connor Thompson</b>,
+                    <br />a Computer Science student at <a href="https://www.indiana.edu/" className="text-blue-400 underline">Indiana University Bloomington</a>, specializing in software engineering to expand my real-world problem-solving skills.
                 </p>
                 <p className="text-lg text-left mt-5 mb-5 ">
                     More things about me:
