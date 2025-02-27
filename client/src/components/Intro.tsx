@@ -68,7 +68,7 @@ export default function Intro() {
           width={28}
           height={28}
         />
-          <p className="font-mono text-2xl px-2">Computer Science &apos;'26</p>
+          <p className="font-mono text-2xl px-2">Computer Science '26</p>
         </div>
         <p className="text-2xl mb-4 p-5">•</p>
         <p className="font-mono text-2xl mb-4 p-5">Building my AI / ML Skillset</p>
