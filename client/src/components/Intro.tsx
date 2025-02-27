@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TechyBackground from '@/components/TechyBackground'; // Assuming correct import
 import TechStack from '@/components/Techstack'
+import Link from 'next/link';
 // @ts-expect-error okay
 import FadeIn from "text-fade-in";
 import Typewriter from 'typewriter-effect';
@@ -90,18 +91,18 @@ export default function Intro() {
         </div>
         {/* Social Links */}
         <div className="flex space-x-6 mt-6 text-5xl"> {/* Increased text size to make icons larger */}
-          <a href="https://github.com/conthom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+          <Link href="https://github.com/conthom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             <FaGithub />
-          </a>
-          <a href="https://linkedin.com/in/connorthompson26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+          </Link>
+          <Link href="https://linkedin.com/in/connorthompson26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             <FaLinkedin />
-          </a>
-          <a href="https://leetcode.com/u/connorhonor/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+          </Link>
+          <Link href="https://leetcode.com/u/connorhonor/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             <LeetCodeIcon />
-          </a>
-          <a href="/about" rel="noopener noreferrer" className="hover:text-gray-400"> {/* Link to your contact page */}
+          </Link>
+          <Link href="/about" rel="noopener noreferrer" className="hover:text-gray-400"> {/* Link to your contact page */}
             <EmailIcon/>
-          </a>
+          </Link>
         </div>
         <FadeIn linear lines>
         <p className="mt-4 max-w-xl mx-auto text-xl text-center bg-black bg-opacity-30 p-4 rounded">
