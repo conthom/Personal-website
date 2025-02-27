@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
 export default function Header() {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setProjectsOpen(!projectsOpen); // Toggle dropdown visibility on click
+  };
 
   return (
     <header className="fixed w-full z-50 bg-black bg-opacity-50 h-16">
@@ -10,7 +16,13 @@ export default function Header() {
         {/* Logo & Mobile Menu Button */}
         <div className="flex items-center justify-between w-full md:w-auto p-3 md:p-1">
           <Link href="/" className="flex items-center text-3xl text-white font-medium">
-            <Image src="connor logo.png" alt="Connor Logo" className="h-8 w-8 mr-10" />
+            <Image
+              src="/connor logo.png"
+              alt="Connor Logo"
+              width={50}
+              height={50}
+              className="h-8 w-8 mr-10"
+            />
             Connor Thompson
           </Link>
           <button
@@ -29,11 +41,22 @@ export default function Header() {
         <nav className="md:flex flex-grow items-center">
           <div className="md:ml-auto md:mr-auto flex flex-wrap items-center text-1xl md:text-base">
             {/* Projects Dropdown */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                setProjectsOpen(true); // Open instantly when hovered
+                setIsHovered(true);
+              }}
+              onMouseLeave={() => {
+                setIsHovered(false);
+                setTimeout(() => {
+                  if (!isHovered) setProjectsOpen(false); // Close with delay
+                }, 300); // 300ms delay before closing
+              }}
+            >
               <button
                 className="text-gray-300 hover:text-white font-semibold flex items-center"
-                onMouseEnter={() => setProjectsOpen(true)}
-                onMouseLeave={() => setProjectsOpen(false)}
+                onClick={handleDropdownToggle} // Toggle dropdown on click
               >
                 Projects
                 <svg
@@ -53,8 +76,8 @@ export default function Header() {
               {projectsOpen && (
                 <div
                   className="absolute z-10 mt-3 w-64 bg-black rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
-                  onMouseEnter={() => setProjectsOpen(true)}
-                  onMouseLeave={() => setProjectsOpen(false)}
+                  onMouseEnter={() => setProjectsOpen(true)} // Prevents closing when hovering over the dropdown content
+                  onMouseLeave={() => setProjectsOpen(false)} // Closes when leaving the dropdown content
                 >
                   <div className="p-4 space-y-2">
                     <Link href="/gantt" className="block text-white hover:bg-gray-800 p-2 rounded-md">

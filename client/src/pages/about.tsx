@@ -14,7 +14,7 @@ const About = () => {
     };
 
     return (
-        <div className="text-white h-screen flex flex-col items-center justify-center px-10 text-l bg-gray-900">
+        <div className="text-white h-screen flex flex-col items-center justify-center px-10 text-l bg-gray-700">
             <Head>
                 <title>Connor Thompson</title>
                 <link rel="icon" href="/connor logo.png" />
@@ -33,10 +33,10 @@ const About = () => {
                     <li>I'm involved with the <a href="https://www.navigators.org/" className="text-blue-400 underline">Navigators</a> (a Christian organization on campus) and occasionally the Chess Club at IU.</li>
                     <li>In my free time, I enjoy a good audiobook, running, video games, and music.</li>
                 </ul>
-
             </div>
+
             {/* Contact Form */}
-            <div className="contact-form-container w-full max-w-md p-8 border border-white rounded mx-40">
+            <div className="contact-form-container w-full max-w-md p-8 border border-gray-500 rounded mx-40 bg-gray-800">
                 <h1 className="text-3xl mb-4">Contact Me</h1>
                 <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                     <input
@@ -44,7 +44,7 @@ const About = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Your Name"
-                        className="p-2 border border-white bg-gray-800 text-white rounded"
+                        className="p-2 border border-white bg-gray-700 text-white rounded"
                         required
                     />
                     <input
@@ -52,7 +52,7 @@ const About = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Your Email"
-                        className="p-2 border border-white bg-gray-800 text-white rounded"
+                        className="p-2 border border-white bg-gray-700 text-white rounded"
                         required
                     />
                     <div className="flex flex-col space-y-2">
@@ -102,7 +102,7 @@ const About = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Your Message"
-                        className="p-2 border border-white bg-gray-800 text-white rounded"
+                        className="p-2 border border-white bg-gray-700 text-white rounded"
                         required
                     />
                     <button type="submit" className="bg-white text-black py-2 px-4 rounded">
