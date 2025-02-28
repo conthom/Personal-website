@@ -5,16 +5,21 @@ import Image from 'next/image';
 export default function Header() {
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleDropdownToggle = () => {
-    setProjectsOpen(!projectsOpen); // Toggle dropdown visibility on click
+    setProjectsOpen(!projectsOpen);
+  };
+
+  const handleMobileMenuToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <header className="fixed w-full z-50 bg-black bg-opacity-50 h-16">
+    <header className="fixed w-full z-50 bg-black/60 backdrop-blur-md h-20">
       <div className="max-w-5xl mx-auto flex flex-wrap p-5 flex-col md:flex-row">
         {/* Logo & Mobile Menu Button */}
-        <div className="flex items-center justify-between w-full md:w-auto p-3 md:p-1">
+        <div className="flex items-center justify-between w-full md:w-auto md:p-1">
           <Link href="/" className="flex items-center text-3xl text-white font-medium">
             <Image
               src="/connor logo.png"
@@ -26,6 +31,7 @@ export default function Header() {
             Connor Thompson
           </Link>
           <button
+            onClick={handleMobileMenuToggle}
             className="text-white md:hidden px-3 py-1 focus:outline-none"
             aria-label="Toggle menu"
           >
@@ -38,7 +44,7 @@ export default function Header() {
         </div>
 
         {/* Navigation Links */}
-        <nav className="md:flex flex-grow items-center">
+        <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-grow items-center w-full md:w-auto`}>
           <div className="md:ml-auto md:mr-auto flex flex-wrap items-center text-1xl md:text-base">
             {/* Projects Dropdown */}
             <div
@@ -75,9 +81,9 @@ export default function Header() {
               {/* Dropdown Content */}
               {projectsOpen && (
                 <div
-                  className="absolute z-10 mt-3 w-64 bg-black rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
-                  onMouseEnter={() => setProjectsOpen(true)} // Prevents closing when hovering over the dropdown content
-                  onMouseLeave={() => setProjectsOpen(false)} // Closes when leaving the dropdown content
+                  className="absolute z-10 mt-3 w-64 bg-black/80 backdrop-blur-sm rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+                  onMouseEnter={() => setProjectsOpen(true)}
+                  onMouseLeave={() => setProjectsOpen(false)}
                 >
                   <div className="p-4 space-y-2">
                     <Link href="/gantt" className="block text-white hover:bg-gray-800 p-2 rounded-md">
