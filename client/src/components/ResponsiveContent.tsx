@@ -64,7 +64,7 @@ const ResponsiveContent: React.FC = () => {
       }
 
       .delay-visible {
-        animation: delayedVisibility 1s forwards;
+        animation: delayedVisibility 1.25s forwards;
       }
 
       @media (max-width: 768px) { /* Mobile devices */
