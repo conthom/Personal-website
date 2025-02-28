@@ -13,17 +13,18 @@ export default function Header() {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', controlNavbar);
-    return () => window.removeEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
   }, [lastScrollY]);
 
   const handleDropdownToggle = () => {
@@ -49,6 +50,7 @@ export default function Header() {
     setCloseTimeout(timeout);
   };
 
+  // Cleanup timeout when component unmounts
   useEffect(() => {
     return () => {
       if (closeTimeout) {
@@ -62,7 +64,7 @@ export default function Header() {
       <div className="w-full bg-black/60 backdrop-blur-md">
         <div className="max-w-5xl mx-auto p-4">
           {/* Logo & Mobile Menu Button */}
-          <div className={`flex items-center justify-between transition-all duration-300 ${isVisible ? 'opacity-100 h-8' : 'opacity-0 h-0 overflow-hidden'}`}>
+          <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center text-xl md:text-3xl text-white font-medium">
               <Image
                 src="/connor logo.png"

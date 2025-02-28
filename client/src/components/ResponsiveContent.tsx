@@ -63,7 +63,7 @@ const ResponsiveContent: React.FC = () => {
           }
         }
         .delay-visible {
-          animation: delayedVisibility 1.25s forwards;
+          animation: delayedVisibility 0s forwards;
         }
       `}</style>
 
