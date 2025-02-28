@@ -53,19 +53,27 @@ const ResponsiveContent: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <style jsx global>{`
-        @keyframes delayedVisibility {
-          0%, 99% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
+    <style jsx global>{`
+      @keyframes delayedVisibility {
+        0%, 99% {
+          opacity: 0;
         }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .delay-visible {
+        animation: delayedVisibility 1s forwards;
+      }
+
+      @media (max-width: 768px) { /* Mobile devices */
         .delay-visible {
-          animation: delayedVisibility 0s forwards;
+          animation: none; /* No fade-in delay on mobile */
+          opacity: 1;
         }
-      `}</style>
+      }
+    `}</style>
 
       <Image
         src="/Connor.jpg"
