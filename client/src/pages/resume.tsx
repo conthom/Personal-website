@@ -15,6 +15,7 @@ export default function Resume() {
             type="application/pdf"
             width="80%"
             height="90%"
+            className="w-full mt-20"
         />
 
 

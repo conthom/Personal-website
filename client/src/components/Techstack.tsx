@@ -34,7 +34,7 @@ export default function TechStack() {
   return (
     <div className='relative w-full overflow-hidden py-12'>
       {/* Gradient overlay */}
-      <div className='absolute inset-0 w-full h-full pointer-events-none bg-gradient-to-r from-black via-transparent to-black z-10' />
+      <div className='absolute inset-0 w-full h-full pointer-events-none z-10' />
 
       <div className='animate-scroll flex'>
         {scrollingIcons.map((item, index) => (
