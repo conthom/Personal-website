@@ -7,37 +7,47 @@ const About = () => {
     const [reason, setReason] = useState('');
     const [name, setName] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
-        const formData = {
-            name,
-            email,
-            reason,
-            message,
-        };
-
-        // Send the form data to the Flask backend
-        try {
-            const response = await fetch('/api/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const data = await response.json();
-            if (data.success) {
-                alert('Your message has been sent!');
-            } else {
-                alert('Something went wrong. Please try again.');
+    
+        const nameElement = document.getElementById('name') as HTMLInputElement;
+        const emailElement = document.getElementById('email') as HTMLInputElement;
+        const messageElement = document.getElementById('message') as HTMLTextAreaElement;
+        const reasonElement = document.querySelector('input[name="reason"]:checked') as HTMLInputElement;
+    
+        if (nameElement && emailElement && messageElement && reasonElement) {
+            const formData = {
+                name: nameElement.value,
+                email: emailElement.value,
+                reason: reasonElement.value,
+                message: messageElement.value,
+            };
+    
+            try {
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+    
+                const data = await response.json();
+    
+                if (data.success) {
+                    alert('Your message has been sent!');
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error sending email:', error);
+                alert('An error occurred. Please try again later.');
             }
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert('An error occurred. Please try again later.');
+        } else {
+            alert('Please fill out all the fields');
         }
     };
+    
 
     return (
         <div className="min-h-screen bg-gray-700">
