@@ -19,7 +19,7 @@ const About = () => {
 
         // Send the form data to the Flask backend
         try {
-            const response = await fetch('/api/send-email', {
+            const response = await fetch('/api/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -132,9 +132,11 @@ const About = () => {
                                 required
                                 rows={4}
                             />
-                            <button type="submit" className="bg-white text-black py-2 px-4 rounded hover:bg-gray-200 transition-colors">
-                                Send Message
-                            </button>
+                            <button 
+                            type="submit"
+                            className="bg-white text-black py-2 px-4 rounded hover:bg-gray-200 transition-colors">
+                            Send Message
+                        </button>
                         </form>
                     </div>
                 </div>
