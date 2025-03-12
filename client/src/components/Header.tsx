@@ -49,7 +49,7 @@ export default function Header() {
     const timer = setTimeout(() => {
       setProjectsOpen(false);
     }, 300); // 300ms delay before closing
-    setCloseTimer(timer);
+    setCloseTimer(timer as unknown as null);
   };
 
   return (
@@ -87,9 +87,9 @@ export default function Header() {
           <nav
             className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-center mt-4 transition-all duration-300`}
           >
-            <div className="flex flex-row justify-center items-center md:space-x-8 bg-transparent">
+            <div className="flex flex-row justify-center items-center md:space-x-8 bg-transparent-blur">
               <div
-                className="relative px-4 md:px-0"
+                className="relative px-4 md:px-0 backdrop-blur-md"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >

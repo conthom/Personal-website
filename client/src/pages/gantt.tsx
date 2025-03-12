@@ -48,10 +48,6 @@ export default function Gantt() {
                     <p className="text-lg mb-4">
                         A collaborative project with Sky Angeles and Nicholas Goh that generates comprehensive business action plans with Gantt chart visualization.
                     </p>
-                    <p className="text-red-300 font-semibold mb-4">
-                **Note:** The G4NTT service is currently not up and running due to backend API and subscription costs. I hope to rehost it in the future. 
-                You can click the youtube icon in the top right of the iframe to view a demo video.
-                </p>
                     <div className="mb-6">
                         <div className="md:flex md:gap-10">
                             <div className="md:w-1/3">
@@ -89,7 +85,7 @@ export default function Gantt() {
                             </div>
                         </div>
                         
-                            <div className="relative w-full" style={{ height: "550px" }}>
+                            <div className="relative w-full" style={{ height: "350px" }}>
                                 <Image 
                                     src="/gantt-chart.png" 
                                     alt="G4NTT Chart Example" 
@@ -102,7 +98,10 @@ export default function Gantt() {
                         </div>
                     </div>
                 </div>
-            
+                <p className="text-center text-red-300 font-semibold mb-4">
+                **Note:** The G4NTT service is currently not up and running due to backend API and subscription costs. I hope to rehost it in the future. 
+                You can click the youtube icon in the top right of the iframe below to view a demo video.
+                </p>
             <main className="flex-grow w-full p-4">
                 <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                     <iframe 

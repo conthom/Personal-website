@@ -68,10 +68,10 @@ export default function GroceryApp() {
                                 The Grocery List app leverages several key technologies and features to provide an efficient and responsive user experience:
                             </p>
                             <ul className="list-disc list-inside space-y-1 ml-2">
-                                <li><strong>Fast User Input:</strong> The app allows users to quickly add items with minimal input, making the process smooth and efficient.</li>
+                                <li><strong>Fast User Input:</strong> The app allows users to quickly add items with minimal input for a.</li>
                                 <li><strong>Smooth UI Experience:</strong> Using Android XML for UI design, the app ensures a visually appealing and responsive layout across devices.</li>
                                 <li><strong>Firebase Integration:</strong> The app stores all data such as item details, quantity, cost, and dates in Firebase. It also supports user login and theme management.</li>
-                                <li><strong>Theme Management:</strong> Users can select and store a preferred theme using SharedPreferences. The theme persists across sessions and even survives orientation changes.</li>
+                                <li><strong>Theme Management:</strong> Users can select and store a preferred theme using SharedPreferences. The theme persists across sessions and orientation changes.</li>
                                 <li><strong>Data Storage & RecyclerView:</strong> A custom `GroceryItem` data class is used to manage item details. The app employs a `RecyclerView` adapter to display a list of grocery items dynamically.</li>
                                 <li><strong>Item Details & Editing:</strong> Users can add, edit, and view item details. Intents are used to pass data between activities for seamless navigation.</li>
                                 <li><strong>List Creation & Sharing:</strong> Users can create new grocery lists or join existing ones using a unique token. This is supported by Firebase's database querying capabilities (e.g., `.whereEqualTo()`).</li>
