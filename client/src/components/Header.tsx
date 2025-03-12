@@ -7,6 +7,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [closeTimer, setCloseTimer] = useState(null);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -37,11 +38,18 @@ export default function Header() {
   };
 
   const handleMouseEnter = () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      setCloseTimer(null);
+    }
     setProjectsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setProjectsOpen(false);
+    const timer = setTimeout(() => {
+      setProjectsOpen(false);
+    }, 300); // 300ms delay before closing
+    setCloseTimer(timer);
   };
 
   return (
@@ -106,17 +114,22 @@ export default function Header() {
                 <div
                   className={`absolute z-10 mt-3 backdrop-blur-md bg-black/80 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
                     projectsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-                  } w-[90vw] md:w-64 -left-12 md:left-0 transform-none md:transform-none`}
-                >
+                  } w-[90vw] md:w-64 -left-12 md:left-0 transform-none md:transform-none`}>
                   <div className="p-4 space-y-3">
+                  <Link href="/gantt" className="block text-white hover:bg-white/10 p-3 rounded-md transition-colors">
+                      <p className="font-medium text-base">G4NTT - AI Business Action Plan Generator</p>
+                      <p className="text-sm text-gray-300 mt-1">Web app for business action plan generation using a Gantt chart. Placing us 2nd in Luddy hackathon 2024. Made with Sky Angeles and Nicholas Goh.</p>
+                    </Link>
                     <Link href="/matrixpracticer" className="block text-white hover:bg-white/10 p-3 rounded-md transition-colors">
                       <p className="font-medium text-base">Matrix Reduction Practicer</p>
                       <p className="text-sm text-gray-300 mt-1">A web app I developed to help students practice row reduction of matrices, a fundamental skill in linear algebra.</p>
                     </Link>
-                    <Link href="/gantt" className="block text-white hover:bg-white/10 p-3 rounded-md transition-colors">
-                      <p className="font-medium text-base">G4NTT - AI Business Action Plan Generator</p>
-                      <p className="text-sm text-gray-300 mt-1">Web app for business action plan generation using a Gantt chart. Made with Sky Angeles and Nicholas Goh.</p>
+                    <Link href="/groceryapp" className="block text-white hover:bg-white/10 p-3 rounded-md transition-colors">
+                      <p className="font-medium text-base">Community Grocery List App</p>
+                      <p className="text-sm text-gray-300 mt-1">
+                      A grocery list Android app featuring seven screens for efficient list management and sharing.</p>
                     </Link>
+                 
                   </div>
                 </div>
               </div>
