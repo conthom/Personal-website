@@ -7,21 +7,22 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY > lastScrollY) {
-        setIsVisible(false);
+        setIsVisible(false); // Hide the navbar when scrolling down
       } else {
-        setIsVisible(true);
+        setIsVisible(true); // Show the navbar when scrolling up
       }
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', controlNavbar);
+
     return () => {
       window.removeEventListener('scroll', controlNavbar);
     };
@@ -36,34 +37,21 @@ export default function Header() {
   };
 
   const handleMouseEnter = () => {
-    if (closeTimeout) {
-      clearTimeout(closeTimeout);
-      setCloseTimeout(null);
-    }
     setProjectsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setProjectsOpen(false);
-    }, 300);
-    setCloseTimeout(timeout);
+    setProjectsOpen(false);
   };
 
-  // Cleanup timeout when component unmounts
-  useEffect(() => {
-    return () => {
-      if (closeTimeout) {
-        clearTimeout(closeTimeout);
-      }
-    };
-  }, [closeTimeout]);
-
   return (
-    <header className="fixed w-full z-50">
+    <header
+      className={`fixed w-full z-50 transition-transform duration-300 ${
+        isVisible ? 'transform-none' : '-translate-y-full'
+      }`}
+    >
       <div className="w-full bg-black/60 backdrop-blur-md">
         <div className="max-w-5xl mx-auto p-4">
-          {/* Logo & Mobile Menu Button */}
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center text-xl md:text-3xl text-white font-medium">
               <Image
@@ -88,10 +76,10 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Navigation Links */}
-          <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-center ${isVisible ? 'mt-4' : 'mt-2'} transition-all duration-300`}>
+          <nav
+            className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-center mt-4 transition-all duration-300`}
+          >
             <div className="flex flex-row justify-center items-center md:space-x-8 bg-transparent">
-              {/* Projects Dropdown */}
               <div
                 className="relative px-4 md:px-0"
                 onMouseEnter={handleMouseEnter}
@@ -115,7 +103,6 @@ export default function Header() {
                   </svg>
                 </button>
 
-                {/* Dropdown Content */}
                 <div
                   className={`absolute z-10 mt-3 backdrop-blur-md bg-black/80 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
                     projectsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'

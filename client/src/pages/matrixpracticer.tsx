@@ -58,14 +58,15 @@ export default function MatrixPracticer() {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="text-xl font-semibold mb-2">Technologies Used:</h2>
-                            <ul className="list-disc list-inside space-y-1 ml-2">
-                                <li>Next.js for frontend development</li>
-                                <li>React for UI components</li>
-                                <li>TypeScript for type safety</li>
-                                <li>Tailwind CSS for styling</li>
-                                <li>Deployed on Vercel</li>
-                            </ul>
+                        <h2 className="text-xl font-semibold mb-2">Technologies Used:</h2>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                            <li>Next.js for frontend and backend development </li>
+                            <li>React for building interactive and reusable UI components</li>
+                            <li>Node.js runtime for server-side matrix reduction logic</li>
+                            <li>TypeScript for type safety, improved code quality, and better developer experience</li>
+                            <li>Tailwind CSS for efficient and responsive styling</li>
+                            <li>Deployed on Vercel for fast and reliable hosting</li>
+                        </ul>
                         </div>
                     </div>
                 </div>

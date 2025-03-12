@@ -9,45 +9,41 @@ const About = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    
-        const nameElement = document.getElementById('name') as HTMLInputElement;
-        const emailElement = document.getElementById('email') as HTMLInputElement;
-        const messageElement = document.getElementById('message') as HTMLTextAreaElement;
-        const reasonElement = document.querySelector('input[name="reason"]:checked') as HTMLInputElement;
-    
-        if (nameElement && emailElement && messageElement && reasonElement) {
-            const formData = {
-                name: nameElement.value,
-                email: emailElement.value,
-                reason: reasonElement.value,
-                message: messageElement.value,
-            };
-    
-            try {
-                const response = await fetch('/api/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                });
-    
-                const data = await response.json();
-    
-                if (data.success) {
-                    alert('Your message has been sent!');
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error sending email:', error);
-                alert('An error occurred. Please try again later.');
-            }
-        } else {
+
+        // Check if all fields are filled
+        if (!name || !email || !message || !reason) {
             alert('Please fill out all the fields');
+            return;
+        }
+
+        const formData = {
+            name,
+            email,
+            reason,
+            message,
+        };
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Your message has been sent!');
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('An error occurred. Please try again later.');
         }
     };
-    
 
     return (
         <div className="min-h-screen bg-gray-700">
@@ -143,10 +139,10 @@ const About = () => {
                                 rows={4}
                             />
                             <button 
-                            type="submit"
-                            className="bg-white text-black py-2 px-4 rounded hover:bg-gray-200 transition-colors">
-                            Send Message
-                        </button>
+                                type="submit"
+                                className="bg-white text-black py-2 px-4 rounded hover:bg-gray-200 transition-colors">
+                                Send Message
+                            </button>
                         </form>
                     </div>
                 </div>
