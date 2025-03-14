@@ -61,7 +61,7 @@ export default function Header() {
       <div className="w-full bg-black/60 backdrop-blur-md">
         <div className="max-w-5xl mx-auto p-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center text-xl md:text-3xl text-white font-medium">
+            <Link href="/" className="flex items-center text-xl md:text-3xl text-gray-300 hover:text-white font-medium">
               <Image
                 src="/connor logo.png"
                 alt="Connor Logo"
@@ -87,9 +87,9 @@ export default function Header() {
           <nav
             className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:justify-center mt-4 transition-all duration-300`}
           >
-            <div className="flex flex-row justify-center items-center md:space-x-8 bg-transparent-blur">
+            <div className="flex flex-row justify-center items-center md:space-x-8">
               <div
-                className="relative px-4 md:px-0 backdrop-blur-md"
+                className="relative px-4 md:px-0"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -110,11 +110,12 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-
-                <div
-                  className={`absolute z-10 mt-3 backdrop-blur-md bg-black/80 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
-                    projectsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-                  } w-[90vw] md:w-64 -left-12 md:left-0 transform-none md:transform-none`}>
+        {/* Projects drop down */}
+        <div
+        className={`absolute z-10 mt-3 bg-black/60 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 
+              transition-all duration-200 w-[90vw] md:w-64 -left-12 md:left-0 transform-none md:transform-none 
+              ${projectsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+                {/* Dropdown content here */}
                   <div className="p-4 space-y-3">
                   <Link href="/gantt" className="block text-white hover:bg-white/10 p-3 rounded-md transition-colors">
                       <p className="font-medium text-base">G4NTT - AI Business Action Plan Generator</p>

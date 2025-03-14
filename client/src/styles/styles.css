@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
   width: 100%;
 }
+.dropdown {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
 
 /* Ensure dark background persists */
 @media (prefers-color-scheme: light) {

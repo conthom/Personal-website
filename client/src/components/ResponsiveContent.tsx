@@ -20,10 +20,10 @@ const ResponsiveContent: React.FC = () => {
       setIsMobile(window.innerWidth <= 768);
       setIsTabletOrDesktop(window.innerWidth > 768);
     };
-    
+
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Return a simpler version during SSR
@@ -53,27 +53,29 @@ const ResponsiveContent: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-    <style jsx global>{`
-      @keyframes delayedVisibility {
-        0%, 99% {
-          opacity: 0;
+      <style jsx global>{`
+        @keyframes delayedVisibility {
+          0%,
+          99% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
-        100% {
-          opacity: 1;
-        }
-      }
 
-      .delay-visible {
-        animation: delayedVisibility 1.25s forwards;
-      }
-
-      @media (max-width: 768px) { /* Mobile devices */
         .delay-visible {
-          animation: none; /* No fade-in delay on mobile */
-          opacity: 1;
+          animation: delayedVisibility 1.25s forwards;
         }
-      }
-    `}</style>
+
+        @media (max-width: 768px) {
+          /* Mobile devices */
+          .delay-visible {
+            animation: none; /* No fade-in delay on mobile */
+            opacity: 1;
+          }
+        }
+      `}</style>
 
       <Image
         src="/Connor.jpg"
@@ -94,7 +96,9 @@ const ResponsiveContent: React.FC = () => {
         />
       </h1>
 
-      <div className={`mt-4 font-mono ${isMobile ? "text-lg" : "text-xl"} delay-visible px-4 max-w-full`}>
+      <div
+        className={`mt-4 font-mono ${isMobile ? "text-lg" : "text-xl"} delay-visible px-4 max-w-full`}
+      >
         <FadeIn linear lines>
           <div className="flex flex-wrap items-center justify-center gap-2 text-center">
             <p className="w-full sm:w-auto">Full Stack Developer</p>
@@ -112,13 +116,28 @@ const ResponsiveContent: React.FC = () => {
       <div className="flex space-x-6 mt-6 delay-visible">
         <FadeIn linear lines>
           <div className="flex space-x-6">
-            <Link href="https://github.com/conthom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <Link
+              href="https://github.com/conthom"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
               <FaGithub className="w-8 h-8 md:w-10 md:h-10" />
             </Link>
-            <Link href="https://linkedin.com/in/connorthompson26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <Link
+              href="https://linkedin.com/in/connorthompson26"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
               <FaLinkedin className="w-8 h-8 md:w-10 md:h-10" />
             </Link>
-            <Link href="https://leetcode.com/u/connorhonor/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <Link
+              href="https://leetcode.com/u/connorhonor/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -130,10 +149,14 @@ const ResponsiveContent: React.FC = () => {
                 <path d="M3.482,18.187l4.313,4.361C8.768,23.527,10.113,24,11.598,24c1.485,0,2.83-0.512,3.805-1.494l2.588-2.637c0.51-0.514,0.492-1.365-0.039-1.9c-0.531-0.535-1.375-0.553-1.884-0.039l-2.676,2.607c-0.462,0.467-1.102,0.662-1.809,0.662s-1.346-0.195-1.81-0.662l-4.298-4.363c-0.463-0.467-0.696-1.15-0.696-1.863c0-0.713,0.233-1.357,0.696-1.824l4.285-4.38c0.463-0.467,1.116-0.645,1.822-0.645s1.346,0.195,1.809,0.662l2.676,2.606c0.51,0.515,1.354,0.497,1.885-0.038c0.531-0.536,0.549-1.387,0.039-1.901l-2.588-2.636c-0.649-0.646-1.471-1.116-2.392-1.33l-0.034-0.007l2.447-2.503c0.512-0.514,0.494-1.366-0.037-1.901c-0.531-0.535-1.376-0.552-1.887-0.038L3.482,10.476C2.509,11.458,2,12.813,2,14.311C2,15.809,2.509,17.207,3.482,18.187z"></path>
               </svg>
             </Link>
-            <Link href="/about" rel="noopener noreferrer" className="hover:text-gray-400">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 36 36" 
+            <Link
+              href="/about"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 36 36"
                 className="w-8 h-8 md:w-10 md:h-10"
                 fill="white"
               >
@@ -145,20 +168,22 @@ const ResponsiveContent: React.FC = () => {
       </div>
       <div className="delay-visible">
         <FadeIn linear lines>
-          <p className={`mt-4 bg-black bg-opacity-30 p-4 rounded ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}>
+          <p
+            className={`mt-4 bg-black bg-opacity-30 p-4 rounded ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}
+          >
             I specialize in full-stack software development using JavaScript,
             React, and Next.js, with backend experience in Python, Flask,
             Firebase, and PostgreSQL.
           </p>
         </FadeIn>
       </div>
-    <div className="w-full mt-6 delay-visible px-4 md:px-8 lg:px-16">
+      <div className="w-full mt-6 delay-visible px-4 md:px-8 lg:px-16">
         <FadeIn linear lines>
-        <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Techstack />
-        </div>
+          </div>
         </FadeIn>
-    </div>   
+      </div>
     </div>
   );
 };
