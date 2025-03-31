@@ -48,6 +48,12 @@ export function Header() {
             About
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-green-400 scale-x-0 transition-transform duration-300 hover:scale-x-100"></span>
           </Link>
+          <Link
+            href="/resume"
+            className="relative text-white text-xl font-medium transition-all duration-300 hover:text-red-400 hover:scale-110"
+          >
+            Resume
+          </Link>
         </nav>
       </div>
     </header>
