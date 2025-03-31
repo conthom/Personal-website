@@ -92,7 +92,7 @@ export default function Gantt() {
                 </h3>
                 <div
                   className="relative w-full"
-                  style={{ height: "500px", width: "150%" }}
+                  style={{ height: "500px", width: "100%" }}
                 >
                   <Image
                     src="/gantt-diagram.png"
