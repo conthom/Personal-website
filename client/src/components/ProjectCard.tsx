@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { FaGithub} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import Image from "next/image"
 import Link from "next/link"
 
@@ -8,12 +8,14 @@ interface ProjectCardProps {
   description: string
   image: string
   link: string
+  projectUrl: string
   tags: string[]
 }
 
-export default function ProjectCard({ title, description, image, link, tags }: ProjectCardProps) {
+export default function ProjectCard({ title, description, image, link, projectUrl, tags }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden">
+      <Link href={projectUrl}>
       <div className="relative aspect-video">
         <Image
           src={image || "/placeholder.svg"}
@@ -36,6 +38,7 @@ export default function ProjectCard({ title, description, image, link, tags }: P
           ))}
         </div>
       </CardContent>
+      </Link>
       <CardFooter className="p-4 pt-0">
         <Link href={link} target="_blank" className="inline-flex items-center gap-2 text-sm hover:underline">
           <FaGithub className="h-4 w-4" />

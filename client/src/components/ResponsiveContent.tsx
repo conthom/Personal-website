@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-// @ts-expect-error okay
-import FadeIn from "text-fade-in";
+import FadeIn from "react-fade-in";
 import Typewriter from "typewriter-effect";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Techstack from "./Techstack";
@@ -25,60 +24,12 @@ const ResponsiveContent: React.FC = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // Return a simpler version during SSR
-  if (!mounted) {
-    return (
-      <div className="w-full flex flex-col items-center">
-        <Image
-          src="/Connor.jpg"
-          alt="Connor Thompson"
-          width={250}
-          height={250}
-          className="rounded-full"
-        />
-        <h1 className="mt-4 font-mono text-5xl">
-          <Typewriter
-            options={{
-              strings: ["Hi, I'm Connor."],
-              autoStart: true,
-              loop: true,
-              cursor: "|",
-            }}
-          />
-        </h1>
-      </div>
-    );
-  }
-
+  
   return (
     <div className="w-full flex flex-col items-center">
-      <style jsx global>{`
-        @keyframes delayedVisibility {
-          0%,
-          99% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
-        .delay-visible {
-          animation: delayedVisibility 1.25s forwards;
-        }
-
-        @media (max-width: 768px) {
-          /* Mobile devices */
-          .delay-visible {
-            animation: none; /* No fade-in delay on mobile */
-            opacity: 1;
-          }
-        }
-      `}</style>
 
       <Image
-        src="/Connor.jpg"
+        src="/Connor.png"
         alt="Connor Thompson"
         width={isMobile ? 150 : 250}
         height={isMobile ? 150 : 250}
@@ -97,9 +48,9 @@ const ResponsiveContent: React.FC = () => {
       </h1>
 
       <div
-        className={`mt-4 font-mono ${isMobile ? "text-lg" : "text-xl"} delay-visible px-4 max-w-full`}
+        className={`mt-4 font-mono ${isMobile ? "text-lg" : "text-xl"} px-4 max-w-full`}
       >
-        <FadeIn linear lines>
+        <FadeIn>
           <div className="flex flex-wrap items-center justify-center gap-2 text-center">
             <p className="w-full sm:w-auto">Full Stack Developer</p>
             <span className="hidden sm:inline text-gray-400">•</span>
@@ -113,8 +64,8 @@ const ResponsiveContent: React.FC = () => {
         </FadeIn>
       </div>
 
-      <div className="flex space-x-6 mt-6 delay-visible">
-        <FadeIn linear lines>
+      <div className="flex space-x-6 mt-6">
+        <FadeIn>
           <div className="flex space-x-6">
             <Link
               href="https://github.com/conthom"
@@ -165,8 +116,7 @@ const ResponsiveContent: React.FC = () => {
           </div>
         </FadeIn>
       </div>
-      <div className="delay-visible">
-        <FadeIn linear lines>
+        <FadeIn>
           <p
             className={`mt-4 rounded-full bg-black bg-opacity-30 p-4 ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}
           >
@@ -175,9 +125,8 @@ const ResponsiveContent: React.FC = () => {
             Firebase, and PostgreSQL.
           </p>
         </FadeIn>
-      </div>
-      <div className="w-full bg-black bg-opacity-30 rounded-full mt-6 delay-visible px-4 md:px-8 lg:px-16">
-        <FadeIn linear lines>
+      <div className="w-full bg-black bg-opacity-30 rounded-full mt-6 px-4 md:px-8 lg:px-16">
+        <FadeIn>
           <div className="max-w-7xl mx-auto">
             <Techstack />
           </div>

@@ -60,37 +60,20 @@ export default function GroceryApp() {
         <div className="max-w-7xl mx-auto bg-gray-700 text-white rounded-lg shadow-lg overflow-hidden mt-6">
           {/* New Technology Overview Section */}
           <div className="flex mb-8">
-            {/* Left Image (grocerytech.png) */}
-            <div className="relative w-1/3" style={{ height: "500px" }}>
-              <Image
-                src="/grocerytech.png"
-                alt="Kotlin Classes and Technology Stack"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                className="rounded-md"
-              />
-            </div>
-
             {/* Right Text Section */}
             <div className="w-2/3 pl-8">
               <h2 className="text-xl font-semibold mb-2">
                 Technology Overview:
               </h2>
               <p className="text-lg mb-4">
-                The Grocery List app leverages several key technologies and
+                The Grocery List app leverages several technologies and
                 features to provide an efficient and responsive user experience:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>
-                  <strong>Fast User Input:</strong> The app allows users to
-                  quickly add items with minimal input for a.
-                </li>
-                <li>
+  
                   <strong>Smooth UI Experience:</strong> Using Android XML for
                   UI design, the app ensures a visually appealing and responsive
                   layout across devices.
-                </li>
                 <li>
                   <strong>Firebase Integration:</strong> The app stores all data
                   such as item details, quantity, cost, and dates in Firebase.
@@ -135,7 +118,6 @@ export default function GroceryApp() {
 
           {/* Screenshots Section */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {/* First Image (groceryliststart.png) */}
             <div className="relative w-full" style={{ height: "500px" }}>
               <Image
                 src="/groceryliststart.png"
@@ -147,7 +129,6 @@ export default function GroceryApp() {
               />
             </div>
 
-            {/* Second Image (grocerylistss.png) */}
             <div className="relative w-full" style={{ height: "500px" }}>
               <Image
                 src="/grocerylistss.png"
@@ -160,7 +141,6 @@ export default function GroceryApp() {
             </div>
           </div>
 
-          {/* Third Image (groceryconsistency.png) */}
           <div className="relative w-full mb-8" style={{ height: "300px" }}>
             <Image
               src="/groceryconsistency.png"
