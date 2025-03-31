@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "../components/Header";
+import Header from "../components/OldHeader";
 
 export default function Gantt() {
   const [iframeHeight, setIframeHeight] = useState("calc(100vh - 300px)");

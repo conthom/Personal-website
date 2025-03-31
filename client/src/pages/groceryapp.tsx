@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/OldHeader";
 import Image from "next/image";
 
 export default function GroceryApp() {

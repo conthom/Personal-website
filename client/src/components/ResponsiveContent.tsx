@@ -150,26 +150,25 @@ const ResponsiveContent: React.FC = () => {
               </svg>
             </Link>
             <Link
-              href="/about"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
+            href="/about"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 36 36"
+              className="w-8 h-8 md:w-10 md:h-10 fill-white transition-colors duration-300 group-hover:fill-gray-400"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 36 36"
-                className="w-8 h-8 md:w-10 md:h-10"
-                fill="white"
-              >
-                <path d="M18 0C8.065 0 0 8.065 0 18s8.065 18 18 18 18-8.065 18-18S27.935 0 18 0zm0 1c9.41 0 17.031 7.59 17.031 17S27.41 35.031 18 35.031C8.59 35.031.969 27.41.969 18 .969 8.59 8.59 1 18 1zM8.844 12.594a.5.5 0 0 0-.438.531V24.5a.5.5 0 0 0 .5.5h18.188a.5.5 0 0 0 .5-.5V13.187a.5.5 0 0 0-.5-.593H18l-9 .031a.5.5 0 0 0-.094-.031.5.5 0 0 0-.062 0zm9.156 1h7.375L18 18.219l-7.344-4.594L18 13.594zM9.406 14l8.344 5.219a.5.5 0 0 0 .531 0L26.594 14v10H9.406V14z"></path>
-              </svg>
-            </Link>
+              <path d="M18 0C8.065 0 0 8.065 0 18s8.065 18 18 18 18-8.065 18-18S27.935 0 18 0zm0 1c9.41 0 17.031 7.59 17.031 17S27.41 35.031 18 35.031C8.59 35.031.969 27.41.969 18 .969 8.59 8.59 1 18 1zM8.844 12.594a.5.5 0 0 0-.438.531V24.5a.5.5 0 0 0 .5.5h18.188a.5.5 0 0 0 .5-.5V13.187a.5.5 0 0 0-.5-.593H18l-9 .031a.5.5 0 0 0-.094-.031.5.5 0 0 0-.062 0zm9.156 1h7.375L18 18.219l-7.344-4.594L18 13.594zM9.406 14l8.344 5.219a.5.5 0 0 0 .531 0L26.594 14v10H9.406V14z"></path>
+            </svg>
+          </Link>
           </div>
         </FadeIn>
       </div>
       <div className="delay-visible">
         <FadeIn linear lines>
           <p
-            className={`mt-4 bg-black bg-opacity-30 p-4 rounded ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}
+            className={`mt-4 rounded-full bg-black bg-opacity-30 p-4 ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}
           >
             I specialize in full-stack software development using JavaScript,
             React, and Next.js, with backend experience in Python, Flask,
@@ -177,7 +176,7 @@ const ResponsiveContent: React.FC = () => {
           </p>
         </FadeIn>
       </div>
-      <div className="w-full mt-6 delay-visible px-4 md:px-8 lg:px-16">
+      <div className="w-full bg-black bg-opacity-30 rounded-full mt-6 delay-visible px-4 md:px-8 lg:px-16">
         <FadeIn linear lines>
           <div className="max-w-7xl mx-auto">
             <Techstack />

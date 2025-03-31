@@ -5,7 +5,7 @@ import ResponsiveContent from "@/components/ResponsiveContent";
 
 export default function Intro() {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pt-16 md:pt-10">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center">
       <div className="absolute inset-0 -z-10">
         <TechyBackground />
       </div>

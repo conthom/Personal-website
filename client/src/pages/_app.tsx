@@ -1,18 +1,18 @@
 import "@/styles/styles.css";
 import { AppProps } from "next/app";
-import Header from "@/components/Header";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Header } from "@/components/Header";
 
 // import Footer from '@/components/Footer';
 
 export default function App({ Component, pageProps }: AppProps) {
+
   return (
     <div>
-      <Header />
+      <Header/>
       <main>
         <Component {...pageProps} />
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }

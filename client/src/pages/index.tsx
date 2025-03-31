@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Index() {
   return (
-    <div style={{ overflowX: "hidden" }} className="h-screen">
+    <div style={{ overflowX: "hidden" }} className="min-h-[125vh]">
       <Head>
         <title>Connor Thompson</title>
         <link rel="icon" href="/connor logo.png" />
