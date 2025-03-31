@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React from "react";
-import Header from "../components/OldHeader";
 import Image from "next/image";
 
 export default function GroceryApp() {
@@ -15,7 +14,6 @@ export default function GroceryApp() {
         />
       </Head>
 
-      <Header />
 
       <div className="description-section bg-gradient-to-r from-blue-900 to-purple-900 text-white py-8 px-4 md:px-8 mt-20">
         <div className="max-w-5xl mx-auto">

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "../components/OldHeader";
 
 export default function Gantt() {
   const [iframeHeight, setIframeHeight] = useState("calc(100vh - 300px)");
@@ -50,8 +49,6 @@ export default function Gantt() {
           content="G4NTT - AI-powered business action plan generator with Gantt chart visualization"
         />
       </Head>
-
-      <Header />
 
       <div className="description-section bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-8 px-4 md:px-8 mt-20">
         <div className="max-w-5xl mx-auto">

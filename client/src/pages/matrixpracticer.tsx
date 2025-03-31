@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import Header from "../components/OldHeader";
 
 export default function MatrixPracticer() {
   const [iframeHeight, setIframeHeight] = useState("calc(100vh - 300px)");
@@ -47,8 +46,6 @@ export default function MatrixPracticer() {
           content="Matrix Practice tool for linear algebra calculations"
         />
       </Head>
-
-      <Header />
 
       <div className="description-section bg-gradient-to-r from-blue-900 to-purple-900 text-white py-8 px-4 md:px-8 mt-20">
         <div className="max-w-5xl mx-auto">
