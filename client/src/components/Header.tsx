@@ -36,7 +36,7 @@ export function Header() {
         className={cn(
           "rounded-full mx-auto flex items-center justify-between max-w-7xl px-4 sm:px-6 py-2 sm:py-4 transition-all duration-300 border",
           scrolled
-            ? "border-white bg-black/80 backdrop-blur text-white"
+            ? "border-white bg-black/50 backdrop-blur text-white"
             : "border-black bg-black text-gray-300"
         )}
       >
