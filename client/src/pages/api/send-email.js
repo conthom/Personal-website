@@ -21,25 +21,21 @@ export default async function handler(req, res) {
       // Send the email using Axios to EmailJS
       const response = await axios.post(
         "https://api.emailjs.com/api/v1.0/email/send",
-        payload,
+        payload
       );
 
+      console.log("EmailJS Response:", response.data); // Log the response for debugging
+
       if (response.data.status === 200) {
-        return res
-          .status(200)
-          .json({ success: true, message: "Email sent successfully!" });
+        return res.status(200).json({ success: true, message: "Email sent successfully!" });
       } else {
-        return res
-          .status(500)
-          .json({ success: false, error: "Failed to send email." });
+        return res.status(500).json({ success: false, error: "Failed to send email." });
       }
     } catch (error) {
       console.error("Error sending email:", error);
       return res.status(500).json({ success: false, error: error.message });
     }
   } else {
-    return res
-      .status(405)
-      .json({ success: false, error: "Method Not Allowed" });
+    return res.status(405).json({ success: false, error: "Method Not Allowed" });
   }
 }
