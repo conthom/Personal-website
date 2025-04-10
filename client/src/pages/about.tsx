@@ -1,14 +1,17 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const About = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState("");
   const [name, setName] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Running on the browser?", typeof window !== "undefined");
     console.log("User:", process.env.EMAIL_USER ? "✅ Loaded" : "❌ Missing");
     console.log("Pass:", process.env.EMAIL_PASS ? "✅ Loaded" : "❌ Missing");
     // Check if all fields are filled
@@ -38,7 +41,7 @@ const About = () => {
       if (data.success) {
         alert("Your message has been sent!");
       } else {
-        console.log(data)
+        console.log(data);
         alert("Something went wrong. Please try again.");
       }
     } catch (error) {
@@ -47,8 +50,21 @@ const About = () => {
     }
   };
 
+  useEffect(() => {
+    if (router.asPath.includes("#scrollbottom")) {
+      console.log("Effect ran");
+      setTimeout(() => {
+        console.log("Scrolling now");
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 150);
+    }
+  }, [router.asPath]); // This effect will now run when the router path changes
+
   return (
-    <div className="min-h-screen bg-gray-700">
+    <div className="min-h-screen bg-gray-700 scroll-smooth">
       <Head>
         <title>Connor Thompson</title>
         <link rel="icon" href="/connor logo.png" />

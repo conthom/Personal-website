@@ -24,6 +24,7 @@ const ResponsiveContent: React.FC = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   
   return (
     <div className="w-full flex flex-col items-center">
@@ -101,7 +102,7 @@ const ResponsiveContent: React.FC = () => {
               </svg>
             </Link>
             <Link
-            href="/about"
+            href="/about#scrollbottom"
             rel="noopener noreferrer"
             className="group"
           >
