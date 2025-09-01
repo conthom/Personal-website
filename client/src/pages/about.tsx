@@ -94,8 +94,7 @@ const About = () => {
               <p className="text-lg mt-5 mb-5">More things about me:</p>
               <ul className="list-disc list-inside space-y-2">
                 <li>
-                  I'm seeking internship opportunities to develop my experience
-                  in the tech field.
+                  I'm seeking full-time opportunities to leverage my skills in Python, React, and data-driven development to build scalable and user-focused solutions.
                 </li>
                 <li>
                   I'm involved with the{" "}
