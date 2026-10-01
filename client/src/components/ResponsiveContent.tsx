@@ -28,7 +28,7 @@ const ResponsiveContent: React.FC = () => {
   
   return (
 <div className="w-full flex flex-col items-center">
-<div className="w-[250px] h-[250px] overflow-hidden rounded-full">
+<div className="w-[clamp(160px,60vw,250px)] aspect-square overflow-hidden rounded-full">
   <Image
     src="/Connor.png"
     alt="Connor Thompson"

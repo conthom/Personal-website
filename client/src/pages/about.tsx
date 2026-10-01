@@ -125,7 +125,7 @@ const About = () => {
             engineering, especially shaping sounds and refining a mix. Listen to
             my work on{" "}
             <a
-              href="https://soundcloud.com/connorhonor"
+              href="https://soundcloud.com/connorhonor/sets/atk-3000"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 underline"
