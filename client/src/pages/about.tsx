@@ -120,6 +120,20 @@ const About = () => {
             In my free time, I enjoy running, exploring the outdoors, video
             games, music, and working on software and AI projects.
           </li>
+          <li>
+            I'm passionate about electronic dance music production and audio
+            engineering, especially shaping sounds and refining a mix. Listen to
+            my work on{" "}
+            <a
+              href="https://soundcloud.com/connorhonor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 underline"
+            >
+              SoundCloud
+            </a>
+            .
+          </li>
         </ul>
       </div>
     </div>
