@@ -71,49 +71,59 @@ const About = () => {
       </Head>
       <div className="pt-24 px-4 md:px-10 pb-8">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-gray-800 rounded-lg p-6 mb-8">
-            <h1
-              className="text-center text-4xl mb-4 text-white"
-              style={{ fontFamily: "Times New Roman, Times, serif" }}
+       <div className="bg-gray-800 rounded-lg p-6 mb-8">
+      <h1
+        className="text-center text-4xl mb-4 text-white"
+        style={{ fontFamily: "Times New Roman, Times, serif" }}
+      >
+        About Me
+      </h1>
+      <div className="text-white">
+        <p className="text-lg">
+          Hi, I'm <b>Connor Thompson</b>,
+          <br />
+          a Computer Science graduate from{" "}
+          <a
+            href="https://www.indiana.edu/"
+            className="text-blue-400 underline"
+          >
+            Indiana University Bloomington
+          </a>
+          , currently living in Cary, North Carolina and working as an
+          Associate Software Engineer at Infosys.
+        </p>
+
+        <p className="text-lg mt-5 mb-5">More things about me:</p>
+
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            I work across the full stack with technologies including Java,
+            Spring Boot, React, JavaScript, Python, and PostgreSQL, with a
+            growing focus on AI and machine learning.
+          </li>
+          <li>
+            During my time at IU, I worked on projects involving computer
+            vision and AI, as well as full-stack applications that combined
+            machine learning with modern web technologies.
+          </li>
+          <li>
+            I'm a member of{" "}
+            <a
+              href="https://www.gethope.net/"
+              className="text-blue-400 underline"
             >
-              About Me
-            </h1>
-            <div className="text-white">
-              <p className="text-lg">
-                Hi, I'm <b>Connor Thompson</b>,
-                <br />a Computer Science student at{" "}
-                <a
-                  href="https://www.indiana.edu/"
-                  className="text-blue-400 underline"
-                >
-                  Indiana University Bloomington
-                </a>
-                , specializing in software engineering to expand my real-world
-                problem-solving skills.
-              </p>
-              <p className="text-lg mt-5 mb-5">More things about me:</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>
-                  I'm seeking full-time opportunities to leverage my skills in Python, React, and data-driven development to build scalable and user-focused solutions.
-                </li>
-                <li>
-                  I'm involved with the{" "}
-                  <a
-                    href="https://www.navigators.org/"
-                    className="text-blue-400 underline"
-                  >
-                    Navigators
-                  </a>{" "}
-                  (a Christian organization on campus) and occasionally the
-                  Chess Club at IU.
-                </li>
-                <li>
-                  In my free time, I enjoy a good audiobook, running, video
-                  games, and music.
-                </li>
-              </ul>
-            </div>
-          </div>
+              Hope Community Church
+            </a>{" "}
+            in Raleigh, where I attend and serve within the church community.
+          </li>
+          <li>
+            In my free time, I enjoy running, exploring the outdoors, video
+            games, music, and working on software and AI projects.
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
           {/* Contact Form */}
           <div className="bg-gray-800 rounded-lg p-6 max-w-md mx-auto">

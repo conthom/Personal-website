@@ -27,15 +27,16 @@ const ResponsiveContent: React.FC = () => {
 
   
   return (
-    <div className="w-full flex flex-col items-center">
-
-      <Image
-        src="/Connor.png"
-        alt="Connor Thompson"
-        width={isMobile ? 150 : 250}
-        height={isMobile ? 150 : 250}
-        className="rounded-full"
-      />
+<div className="w-full flex flex-col items-center">
+<div className="w-[250px] h-[250px] overflow-hidden rounded-full">
+  <Image
+    src="/Connor.png"
+    alt="Connor Thompson"
+    width={200}
+    height={200}
+    className="w-full h-full object-cover object-[center_30%]"
+  />
+</div>
 
       <h1 className={`mt-4 font-mono ${isMobile ? "text-2xl" : "text-5xl"}`}>
         <Typewriter
