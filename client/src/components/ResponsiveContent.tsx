@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-import FadeIn from "react-fade-in";
-import Typewriter from "typewriter-effect";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Techstack from "./Techstack";
 
@@ -39,20 +37,13 @@ const ResponsiveContent: React.FC = () => {
 </div>
 
       <h1 className={`mt-4 font-mono ${isMobile ? "text-2xl" : "text-5xl"}`}>
-        <Typewriter
-          options={{
-            strings: ["Hi, I'm Connor."],
-            autoStart: true,
-            loop: true,
-            cursor: "|",
-          }}
-        />
+        Hi, I'm Connor.<span className="typing-cursor" aria-hidden="true">|</span>
       </h1>
 
       <div
         className={`mt-4 font-mono ${isMobile ? "text-lg" : "text-xl"} px-4 max-w-full`}
       >
-        <FadeIn>
+        <div className="fade-in">
           <div className="flex flex-wrap items-center justify-center gap-2 text-center">
             <p className="w-full sm:w-auto">Full Stack Developer</p>
             <span className="hidden sm:inline text-gray-400">•</span>
@@ -63,11 +54,11 @@ const ResponsiveContent: React.FC = () => {
             <span className="hidden sm:inline text-gray-400">•</span>
             <p className="w-full sm:w-auto">Building my AI / ML Skillset</p>
           </div>
-        </FadeIn>
+        </div>
       </div>
 
       <div className="flex space-x-6 mt-6">
-        <FadeIn>
+        <div className="fade-in">
           <div className="flex space-x-6">
             <Link
               href="https://github.com/conthom"
@@ -116,9 +107,9 @@ const ResponsiveContent: React.FC = () => {
             </svg>
           </Link>
           </div>
-        </FadeIn>
+        </div>
       </div>
-        <FadeIn>
+        <div className="fade-in">
           <p
             className={`mt-4 rounded-full bg-black bg-opacity-30 p-4 ${isMobile ? "max-w-xs text-base" : "max-w-lg text-xl"}`}
           >
@@ -126,13 +117,13 @@ const ResponsiveContent: React.FC = () => {
             React, and Next.js, with backend experience in Python, Flask,
             Firebase, and PostgreSQL.
           </p>
-        </FadeIn>
+        </div>
       <div className="w-full bg-black bg-opacity-30 rounded-full mt-6 px-4 md:px-8 lg:px-16">
-        <FadeIn>
+        <div className="fade-in">
           <div className="max-w-7xl mx-auto">
             <Techstack />
           </div>
-        </FadeIn>
+        </div>
       </div>
     </div>
   );

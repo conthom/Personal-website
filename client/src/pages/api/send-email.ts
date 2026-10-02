@@ -12,18 +12,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: "Missing required fields" });
   }
 
+  const emailUser = process.env.EMAIL_USER;
+  const emailPass = process.env.EMAIL_PASS;
+  const emailTo = process.env.EMAIL_TO;
+
+  if (!emailUser || !emailPass || !emailTo) {
+    const missingVariables = [
+      !emailUser && "EMAIL_USER",
+      !emailPass && "EMAIL_PASS",
+      !emailTo && "EMAIL_TO",
+    ].filter(Boolean);
+    console.error(`Email service configuration is missing: ${missingVariables.join(", ")}`);
+    return res.status(500).json({ success: false, error: "Email service is not configured" });
+  }
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: emailUser,
+      pass: emailPass,
     },
   });
 
   try {
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_TO,
+      from: emailUser,
+      replyTo: email,
+      to: emailTo,
       subject: `New Contact from ${name} (${reason})`,
       text: message,
       html: `<p><b>From:</b> ${name} (${email})</p><p><b>Reason:</b> ${reason}</p><p><b>Message:</b></p><p>${message}</p>`,

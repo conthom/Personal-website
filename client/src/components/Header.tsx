@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa"; // Import the left arrow icon
-import FadeIn from "react-fade-in";
 
 export function Header() {
   const pathname = usePathname(); // Get current route
@@ -68,9 +67,7 @@ export function Header() {
               {href === "/projects" ? (
                 isProjectPage ? (
                   <div className="flex items-center">
-                    <FadeIn>
-                      <FaArrowLeft className="text-white" />
-                    </FadeIn>
+                    <FaArrowLeft className="text-white fade-in" />
                     <span>Projects</span>
                   </div>
                 ) : (

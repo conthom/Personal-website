@@ -11,9 +11,6 @@ const About = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Running on the browser?", typeof window !== "undefined");
-    console.log("User:", process.env.EMAIL_USER ? "✅ Loaded" : "❌ Missing");
-    console.log("Pass:", process.env.EMAIL_PASS ? "✅ Loaded" : "❌ Missing");
     // Check if all fields are filled
     if (!name || !email || !message || !reason) {
       alert("Please fill out all the fields");
