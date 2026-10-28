@@ -19,6 +19,23 @@ body {
   animation: blink 1s steps(2, start) infinite;
 }
 
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: typewriter 1.8s steps(15, end) both;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 15ch;
+  }
+}
+
 @keyframes blink {
   to {
     visibility: hidden;
@@ -26,7 +43,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .typing-cursor {
+  .typing-cursor,
+  .typewriter-text {
     animation: none;
   }
 }

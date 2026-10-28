@@ -10,6 +10,7 @@ const ResponsiveContent: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(true);
+  const [typewriterRun, setTypewriterRun] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -21,6 +22,29 @@ const ResponsiveContent: React.FC = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const replayTypewriter = () => setTypewriterRun((run) => run + 1);
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        replayTypewriter();
+      }
+    };
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === "visible") {
+        replayTypewriter();
+      }
+    }, 10000);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pageshow", replayTypewriter);
+
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pageshow", replayTypewriter);
+    };
   }, []);
 
   
@@ -37,7 +61,8 @@ const ResponsiveContent: React.FC = () => {
 </div>
 
       <h1 className={`mt-4 font-mono ${isMobile ? "text-2xl" : "text-5xl"}`}>
-        Hi, I'm Connor.<span className="typing-cursor" aria-hidden="true">|</span>
+        <span key={typewriterRun} className="typewriter-text">Hi, I'm Connor.</span>
+        <span className="typing-cursor" aria-hidden="true">|</span>
       </h1>
 
       <div
